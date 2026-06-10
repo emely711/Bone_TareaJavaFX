@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fitToWidth="true"
+            style="-fx-background-color: #f8f9fa;">
+
+    <VBox fx:controller="com.tarea.javafx.practica3.EncuestaController"
+          spacing="20"
+          style="-fx-padding: 30; -fx-background-color: #f8f9fa;"
+          prefWidth="520">
+
+        <!-- TÍTULO -->
+        <Label text="ENCUESTA DE CONOCIMIENTOS TECNOLÓGICOS"
+               wrapText="true"
+               style="-fx-font-size: 18px; -fx-font-weight: bold;
+                      -fx-text-fill: #2c3e50; -fx-alignment: CENTER;"
+               maxWidth="460"/>
+        <Label text="Responda todas las preguntas. Cada correcta vale 5 pts. Máximo 20 pts."
+               wrapText="true"
+               style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+
+        <Separator/>
+
+        <!-- PREGUNTA 1 -->
+        <VBox spacing="8" style="-fx-background-color: white; -fx-padding: 15;
+                                  -fx-border-color: #d5d8dc; -fx-border-radius: 5;
+                                  -fx-background-radius: 5;">
+            <Label text="Pregunta 1: ¿Cuántos bytes tiene 1 Kilobyte (KB)?"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <fx:define>
+                <ToggleGroup fx:id="tgP1"/>
+            </fx:define>
+            <RadioButton fx:id="rbP1A" text="A) 100 bytes"  toggleGroup="$tgP1"/>
+            <RadioButton fx:id="rbP1B" text="B) 1024 bytes" toggleGroup="$tgP1"/>
+            <RadioButton fx:id="rbP1C" text="C) 512 bytes"  toggleGroup="$tgP1"/>
+            <RadioButton fx:id="rbP1D" text="D) 2048 bytes" toggleGroup="$tgP1"/>
+        </VBox>
+
+        <!-- PREGUNTA 2 -->
+        <VBox spacing="8" style="-fx-background-color: white; -fx-padding: 15;
+                                  -fx-border-color: #d5d8dc; -fx-border-radius: 5;
+                                  -fx-background-radius: 5;">
+            <Label text="Pregunta 2: ¿Qué lenguaje de programación usa JavaFX?"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <fx:define>
+                <ToggleGroup fx:id="tgP2"/>
+            </fx:define>
+            <RadioButton fx:id="rbP2A" text="A) Java"       toggleGroup="$tgP2"/>
+            <RadioButton fx:id="rbP2B" text="B) Python"     toggleGroup="$tgP2"/>
+            <RadioButton fx:id="rbP2C" text="C) C#"         toggleGroup="$tgP2"/>
+            <RadioButton fx:id="rbP2D" text="D) JavaScript" toggleGroup="$tgP2"/>
+        </VBox>
+
+        <!-- PREGUNTA 3 -->
+        <VBox spacing="8" style="-fx-background-color: white; -fx-padding: 15;
+                                  -fx-border-color: #d5d8dc; -fx-border-radius: 5;
+                                  -fx-background-radius: 5;">
+            <Label text="Pregunta 3: ¿Qué significa la sigla POO?"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <fx:define>
+                <ToggleGroup fx:id="tgP3"/>
+            </fx:define>
+            <RadioButton fx:id="rbP3A" text="A) Proceso Orientado a Objetos"        toggleGroup="$tgP3"/>
+            <RadioButton fx:id="rbP3B" text="B) Programa de Operación Optimizada"   toggleGroup="$tgP3"/>
+            <RadioButton fx:id="rbP3C" text="C) Programación Orientada a Objetos"   toggleGroup="$tgP3"/>
+            <RadioButton fx:id="rbP3D" text="D) Protocolo de Operación Online"      toggleGroup="$tgP3"/>
+        </VBox>
+
+        <!-- PREGUNTA 4 -->
+        <VBox spacing="8" style="-fx-background-color: white; -fx-padding: 15;
+                                  -fx-border-color: #d5d8dc; -fx-border-radius: 5;
+                                  -fx-background-radius: 5;">
+            <Label text="Pregunta 4: ¿Cuántos bits tiene 1 byte?"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <fx:define>
+                <ToggleGroup fx:id="tgP4"/>
+            </fx:define>
+            <RadioButton fx:id="rbP4A" text="A) 8 bits"  toggleGroup="$tgP4"/>
+            <RadioButton fx:id="rbP4B" text="B) 4 bits"  toggleGroup="$tgP4"/>
+            <RadioButton fx:id="rbP4C" text="C) 16 bits" toggleGroup="$tgP4"/>
+            <RadioButton fx:id="rbP4D" text="D) 2 bits"  toggleGroup="$tgP4"/>
+        </VBox>
+
+        <Separator/>
+
+        <!-- BOTONES -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button fx:id="btnEnviar" text="Enviar Respuestas"
+                    onAction="#handleEnviar"
+                    style="-fx-background-color: #2980b9; -fx-text-fill: white;
+                           -fx-font-weight: bold; -fx-padding: 10 30;"
+                    prefWidth="180"/>
+            <Button fx:id="btnReiniciar" text="Reiniciar"
+                    onAction="#handleReiniciar"
+                    style="-fx-background-color: #7f8c8d; -fx-text-fill: white;
+                           -fx-font-weight: bold; -fx-padding: 10 30;"
+                    prefWidth="120"/>
+        </HBox>
+
+        <!-- ZONA DE RESULTADO (oculta hasta enviar) -->
+        <VBox fx:id="vboxResultado" spacing="8"
+              style="-fx-background-color: #eaf4fb; -fx-padding: 20;
+                     -fx-border-color: #2980b9; -fx-border-radius: 5;
+                     -fx-background-radius: 5;">
+            <Label text="── RESULTADO ──"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a5276; -fx-alignment: CENTER;"/>
+            <Label fx:id="lblPuntaje"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1a5276;"/>
+            <Label fx:id="lblCorrectas"
+                   style="-fx-font-size: 14px; -fx-text-fill: #1e8449;"/>
+            <Label fx:id="lblIncorrectas"
+                   style="-fx-font-size: 14px; -fx-text-fill: #c0392b;"/>
+            <Label fx:id="lblMensajeFinal"
+                   style="-fx-font-size: 14px;" wrapText="true"/>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

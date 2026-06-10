@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tarea.javafx.practica2.AdminController"
+      alignment="CENTER"
+      spacing="25"
+      style="-fx-padding: 50; -fx-background-color: #eaf4fb;"
+      prefWidth="480" prefHeight="320">
+
+    <Label fx:id="lblTitulo"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1a5276;"/>
+
+    <Label fx:id="lblInfo"
+           style="-fx-font-size: 13px; -fx-text-fill: #5d6d7e; -fx-text-alignment: center;"
+           wrapText="true" maxWidth="380"/>
+
+    <Label text="Práctica 2: Formulario Principal sin Login"
+           style="-fx-font-size: 12px; -fx-text-fill: #2980b9; -fx-font-style: italic;"/>
+</VBox>
